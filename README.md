@@ -19,6 +19,8 @@ Aplicativo para listar as vagas disponíveis na gupy com algumas opções
 
 [Link do Site](https://gupy-jobs-svelte.vercel.app/)
 
+Um fork feito em svelte do repositório do [birobirobiro](https://github.com/birobirobiro/gupy-jobs)
+
 ## Objetivo
 
 Criei este app para ajudar a encontrar vagas rapidamente na plataforma da gupy. Este app filtra vagas por tipo remoto ou não e por foco de desenvolvimento front-end back-end ou full-stack.
