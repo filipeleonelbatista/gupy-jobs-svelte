@@ -17,7 +17,7 @@
   let selectedRemote = true; 
 
   async function fetchJobs(page: number = 1) {
-    const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
+    const api = `https://cors-anywhere-filipeleonelbatista.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
     const jobName = `&jobName=${selectedArea}`;
     const type = `&type=vacancy_type_effective`;
     const isRemoteWork = `&isRemoteWork=${selectedRemote}`;
