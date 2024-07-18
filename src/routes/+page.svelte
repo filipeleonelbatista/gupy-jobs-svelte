@@ -4,6 +4,8 @@
   import * as Select from "$lib/components/ui/select";
   import { Label } from "$lib/components/ui/label";
   import Pagination from '$lib/components/ui/pagination/Pagination.svelte';
+  import { Input } from "$lib/components/ui/input";
+  import { Button } from "$lib/components/ui/button";
 
   let jobs = [];
   let pagination = {
@@ -13,17 +15,17 @@
   };
   let currentPage = 1;
   let isLoading = true; 
-  let selectedArea = 'front-end'; 
+  let selectedArea = 'Desenvolvedor Front-end'; 
   let selectedRemote = true; 
 
   async function fetchJobs(page: number = 1) {
     const api = `https://cors-everywhere.onrender.com/https://portal.api.gupy.io/api/v1/jobs?`;
-    const jobName = `&jobName=${selectedArea}`;
+    const jobName = `&jobName=${encodeURIComponent(selectedArea.toLowerCase())}`;
     const type = `&type=vacancy_type_effective`;
     const isRemoteWork = `&isRemoteWork=${selectedRemote}`;
     const limit = `&limit=${pagination.limit}`;
     const offset = `&offset=${(page - 1) * pagination.limit}`;
-
+    console.log(`${api}${limit}${offset}${jobName}${isRemoteWork}${type}`)
     const response = await fetch(`${api}${limit}${offset}${jobName}${isRemoteWork}${type}`);
     const data = await response.json();
     jobs = data.data;
@@ -36,18 +38,16 @@
     fetchJobs();
   });
 
-  function handleAreaChange(v) {
-    selectedArea = v.value;
-    fetchJobs(); 
+  function handleAreaChange(event) {
+    selectedArea = event.target.value;
   }
 
   function handleRemoteChange(v) {
     selectedRemote = v.value == "true";
-    fetchJobs(); 
   }
 </script>
 
-<main class="flex flex-col w-full min-h-screen bg-zinc-900 sm:px-4">
+<main class="flex flex-col w-full min-h-screen bg-gray-900 px-4">
   <div class="flex w-full items-center justify-center p-6">
     <h2 class="text-2xl text-center text-white font-bold uppercase">
       Gupy Jobs <small>v1.2</small>
@@ -58,16 +58,7 @@
     <div class="flex w-full sm:flex-col md:flex-row max-w-[1024px] gap-4">
       <div class="w-full flex flex-col gap-2">
         <Label class="text-white" for="area">Área de atuação:</Label>
-        <Select.Root onSelectedChange={handleAreaChange}>
-          <Select.Trigger>
-            <Select.Value placeholder="Selecione um cargo" />
-          </Select.Trigger>
-          <Select.Content>
-            <Select.Item value="front-end">Front end</Select.Item>
-            <Select.Item value="back-end">Back end</Select.Item>
-            <Select.Item value="full-stack">Full stack</Select.Item>
-          </Select.Content>
-        </Select.Root>
+        <Input type="text" on:change={handleAreaChange} value={selectedArea} />        
       </div>
 
       <div class="w-full flex flex-col gap-2">
@@ -82,6 +73,10 @@
           </Select.Content>
         </Select.Root>
       </div>
+
+      <Button on:click={() => fetchJobs()}  variant="secondary" class="bg-blue-500 hover:bg-blue-700 text-white">
+        Buscar
+      </Button>
 
     </div>
   </div>
