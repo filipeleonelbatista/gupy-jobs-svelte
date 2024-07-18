@@ -82,7 +82,18 @@
 		[key: string]: string;
 	} = {
 		vacancy_type_effective: 'Efetivo',
-		vacancy_type_internship: 'Estágio'
+		vacancy_type_internship: 'Estágio',
+		vacancy_type_apprentice: 'Aprendiz',
+		vacancy_type_associate: 'Associado',
+		vacancy_type_talent_pool: 'Banco de talentos',
+		vacancy_type_temporary: 'Temporario',
+		vacancy_type_outsource: 'Terceirizado',
+		vacancy_type_trainee: 'Trainee',
+		vacancy_type_volunteer: 'Voluntário',
+		vacancy_legal_entity: 'PJ',
+		vacancy_type_lecturer: 'Professor(a)',
+		vacancy_type_freelancer: 'Freelancer',
+		vacancy_type_autonomou: 'Autonomo'
 	};
 </script>
 
@@ -94,7 +105,7 @@
 	</div>
 
 	<div class="mb-4 flex w-full justify-center">
-		<div class="flex flex-col md:flex-row items-end w-full max-w-[1024px] gap-4">
+		<div class="flex w-full max-w-[1024px] flex-col items-end gap-4 md:flex-row">
 			<div class="flex w-full flex-col gap-2">
 				<Label class="text-white" for="area">Área de atuação:</Label>
 				<Input type="text" on:change={handleAreaChange} value={selectedArea} />
@@ -128,6 +139,17 @@
 					<Select.Content>
 						<Select.Item value="vacancy_type_effective" label="Efetivo" />
 						<Select.Item value="vacancy_type_internship" label="Estágio" />
+						<Select.Item value="vacancy_type_apprentice" label="Aprendiz" />
+						<Select.Item value="vacancy_type_associate" label="Associado" />
+						<Select.Item value="vacancy_type_talent_pool" label="Banco de talentos" />
+						<Select.Item value="vacancy_type_temporary" label="Temporario" />
+						<Select.Item value="vacancy_type_outsource" label="Terceirizado" />
+						<Select.Item value="vacancy_type_trainee" label="Trainee" />
+						<Select.Item value="vacancy_type_volunteer" label="Voluntário" />
+						<Select.Item value="vacancy_legal_entity" label="PJ" />
+						<Select.Item value="vacancy_type_lecturer" label="Professor(a)" />
+						<Select.Item value="vacancy_type_freelancer" label="Freelancer" />
+						<Select.Item value="vacancy_type_autonomou" label="Autonomo" />
 					</Select.Content>
 				</Select.Root>
 			</div>
