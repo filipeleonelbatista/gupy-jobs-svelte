@@ -100,7 +100,7 @@
 <main class="flex min-h-screen w-full flex-col bg-gray-900 px-4">
 	<div class="flex w-full items-center justify-center p-6">
 		<h2 class="text-center text-2xl font-bold uppercase text-white">
-			Gupy Jobs <small>v1.5</small>
+			Gupy Jobs <small class="text-xs py-0.5 px-3 rounded-full bg-gray-950">v1.8</small>
 		</h2>
 	</div>
 
