@@ -10,7 +10,7 @@
   export let hasFriendlyBadge: boolean;
 </script>
 
-<div class="w-full flex flex-col items-center p-4 rounded-lg bg-zinc-800 shadow-sm gap-4">
+<div class="w-full flex flex-col items-center p-4 rounded-lg bg-zinc-950 shadow-sm gap-4">
   <div class="w-full flex flex-row items-center">
     <img class="w-14 h-14 object-cover rounded-full mr-4" src={imageUrl} alt={empresa} />
     <div class="w-full flex flex-col">
