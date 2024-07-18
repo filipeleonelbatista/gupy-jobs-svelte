@@ -94,7 +94,7 @@
 	</div>
 
 	<div class="mb-4 flex w-full justify-center">
-		<div class="flex items-end w-full max-w-[1024px] gap-4 sm:flex-col md:flex-row">
+		<div class="flex flex-col md:flex-row items-end w-full max-w-[1024px] gap-4">
 			<div class="flex w-full flex-col gap-2">
 				<Label class="text-white" for="area">Área de atuação:</Label>
 				<Input type="text" on:change={handleAreaChange} value={selectedArea} />
